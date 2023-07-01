@@ -33,13 +33,17 @@ DJANGO_APPS = (
 )
 
 LOCAL_APPS = (
+    "applications.home",
     "applications.article",
     "applications.project",
-    "applications.home",
     "applications.experience",
 )
 
-THIRD_PARTY_APPS = ("multiselectfield", "rest_framework")
+THIRD_PARTY_APPS = (
+    "drf_yasg",
+    "rest_framework",
+    "multiselectfield",
+)
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
