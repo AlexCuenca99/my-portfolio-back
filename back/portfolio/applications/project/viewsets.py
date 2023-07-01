@@ -6,6 +6,8 @@ from .serializers import ProjectModelSerializer
 
 from .models import Project
 
+from .paginators import ProjectPagination
+
 
 class ProjectModelViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -27,3 +29,5 @@ class ProjectModelViewSet(viewsets.ReadOnlyModelViewSet):
     filterset_fields = ["title", "company", "dev_year", "technologies"]
     search_fields = ["title", "company", "dev_year", "technologies"]
     ordering = ["dev_year"]
+
+    pagination_class = ProjectPagination
