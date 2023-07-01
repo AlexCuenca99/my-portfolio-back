@@ -1,4 +1,6 @@
-from rest_framework import viewsets
+from django_filters.rest_framework import DjangoFilterBackend
+
+from rest_framework import viewsets, filters
 
 from .serializers import ProjectModelSerializer
 
@@ -16,3 +18,12 @@ class ProjectModelViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Project.objects.all()
     serializer_class = ProjectModelSerializer
+
+    filter_backends = [
+        DjangoFilterBackend,
+        filters.SearchFilter,
+        filters.OrderingFilter,
+    ]
+    filterset_fields = ["title", "company", "dev_year", "technologies"]
+    search_fields = ["title", "company", "dev_year", "technologies"]
+    ordering = ["dev_year"]
