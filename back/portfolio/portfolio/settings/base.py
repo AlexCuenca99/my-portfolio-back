@@ -39,7 +39,7 @@ LOCAL_APPS = (
     "applications.experience",
 )
 
-THIRD_PARTY_APPS = ("multiselectfield",)
+THIRD_PARTY_APPS = ("multiselectfield", "rest_framework")
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
@@ -109,12 +109,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = "/static/"
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "..", "uploads")
 STATIC_ROOT = os.path.join(BASE_DIR, "..", "static")
 
+
 # Media files (Uploads)
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "..", "uploads")
+
 
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Rest Framework Settings
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly",
+    ]
+}
