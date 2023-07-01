@@ -52,5 +52,9 @@ class Project(TimeStampedModel):
         verbose_name = "Project"
         verbose_name_plural = "Projects"
 
+    @classmethod
+    def get_by_id(cls, uid):
+        return Project.objects.get(pk=uid)
+
     def __str__(self):
         return f"{self.title} in {self.url}"
