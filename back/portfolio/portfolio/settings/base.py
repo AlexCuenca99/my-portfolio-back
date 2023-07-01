@@ -36,6 +36,7 @@ LOCAL_APPS = (
     "applications.article",
     "applications.project",
     "applications.home",
+    "applications.experience",
 )
 
 THIRD_PARTY_APPS = ("multiselectfield",)
