@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from django.contrib import admin
 
 from drf_yasg import openapi
@@ -34,4 +34,5 @@ urlpatterns = [
     # Base Urls
     path("admin/", admin.site.urls),
     # Local Apps Urls
+    path("api/v1/projects/", include("applications.project.routers")),
 ]
