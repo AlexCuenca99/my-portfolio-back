@@ -32,17 +32,25 @@ def screenshot_file_name(self, filename):
 
 class Project(TimeStampedModel):
     url = models.URLField("Website", max_length=200)
-    title = models.CharField("Project Title", max_length=30)
+    dev_year = models.PositiveSmallIntegerField("Year")
+    company = models.CharField("Company", max_length=100)
+    title = models.CharField("Project title", max_length=30)
     description = models.TextField("Description", max_length=100)
     in_production = models.BooleanField("Is in production", default=False)
     screenshot = models.ImageField(
         "Screenshot", upload_to=screenshot_file_name, blank=True, null=True
     )
-    technologies = MultiSelectField(choices=TECHS_CHOICES, max_length=20, max_choices=6)
+    technologies = MultiSelectField(
+        "Technologies",
+        choices=TECHS_CHOICES,
+        max_length=20,
+        max_choices=6,
+        blank=True,
+    )
 
     class Meta:
         verbose_name = "Project"
         verbose_name_plural = "Projects"
 
     def __str__(self):
-        return f"{self.title} en {self.url}"
+        return f"{self.title} in {self.url}"
