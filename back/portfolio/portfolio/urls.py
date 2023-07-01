@@ -34,5 +34,5 @@ urlpatterns = [
     # Base Urls
     path("admin/", admin.site.urls),
     # Local Apps Urls
-    path("api/v1/projects/", include("applications.project.routers")),
+    path("api/v1/", include("applications.project.routers")),
 ]
