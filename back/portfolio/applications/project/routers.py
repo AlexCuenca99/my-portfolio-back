@@ -4,5 +4,5 @@ from .viewsets import ProjectModelViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r"projects", ProjectModelViewSet)
+router.register(r"projects", ProjectModelViewSet, basename="project")
 urlpatterns = router.urls
