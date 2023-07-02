@@ -51,6 +51,7 @@ class Project(TimeStampedModel):
     class Meta:
         verbose_name = "Project"
         verbose_name_plural = "Projects"
+        ordering = ["dev_year"]
 
     @classmethod
     def get_by_id(cls, uid):
